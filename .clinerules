@@ -1,0 +1,49 @@
+#プロジェクトのディレクトリ構成
+
+```
+.
+├── app                                # アプリケーションのルートフォルダ
+│   ├── src                            # ソースコード
+│   │   ├── main.py                   # FastAPIエントリポイント
+│   │   ├── endpoints                 # ルーティングやエンドポイントを定義
+│   │   │   └── fortune.py            # /fortune 等のエンドポイント例
+│   │   ├── services                  # ビジネスロジックやLLM呼出し処理などをまとめる
+│   │   │   ├── create_topics_service.py      # create_topics用サービス
+│   │   │   ├── parse_logic_data_service.py   # XMLをパースしてLogicDataを生成するサービス
+│   │   │   ├── ghost_tone_service.py         # ghost_tone_model（LLM）呼び出し
+│   │   │   └── summary_service.py            # 内容を20文字以内で要約するサービス
+│   │   ├── repository               # データ取得リポジトリ
+│   │   │   ├── mock_repository.py   # mockdataからデータ取得するリポジトリ
+│   │   │   └── external_repository.py  # 外部APIなど本番用のデータ取得リポジトリ(将来的に)
+│   │   ├── models                   # DBモデルやORマッパーを使うならここに置く
+│   │   ├── utils                    # 共通ユーティリティ
+│   │   ├── prompt                   # プロンプトファイルを格納
+│   │   │   ├── create_topics_prompts.py  # create_topics用のPrompt
+│   │   │   ├── ghost_tone_prompts.py     # ghost_tone用のPrompt
+│   │   │   └── summary_prompts.py        # summary用のPrompt
+│   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
+│   ├── tests                        # テスト関連
+│   │   ├── mockdata                 # テスト用のモックデータ
+│   │   │   ├── view_history.json    # 閲覧履歴モックデータ
+│   │   │   └── logic_data.xml       # テスト用のロジックデータ（XML）
+│   │   ├── test_endpoints           # エンドポイントのユニット/結合テスト
+│   │   ├── test_services            # サービス層のユニットテスト
+│   │   └── __init__.py             # テスト用パッケージ
+│   ├── config                       # 設定関連
+│   │   └── settings.py             # 環境変数や設定値を管理する
+│   ├── schema                       # Pydanticスキーマ
+│   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義
+│   └── __init__.py                 # Pythonパッケージとして認識させるためのファイル
+├── cdk                              # AWS CDKによるIaC
+│   ├── app_runner_stack.py         # App Runner関連のスタック定義
+│   ├── codepipeline_stack.py       # CodePipeline/CodeBuild関連のスタック定義
+│   ├── requirements.txt            # CDKで利用するPythonライブラリの依存関係
+│   └── __init__.py                 # CDK用パッケージ
+├── doc                              # ドキュメント類
+│   └── how_to_use_bedrock_claude.md  # Claude(Bedrock)を使ったLLM実装ガイド
+├── Dockerfile                       # Dockerビルド用
+├── requirements.txt                 # アプリケーションのPython依存関係
+└── README.md                        # プロジェクト全体の説明
+
+```
+
