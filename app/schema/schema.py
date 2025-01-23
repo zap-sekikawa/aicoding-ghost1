@@ -106,3 +106,10 @@ class SummaryResult(BaseModel):
     ghost_id: int
     summary: str 
     content: str
+
+
+class ClientOutput(BaseModel):
+    """
+    ユーザーに返す出力。
+    """
+    results: List[SummaryResult]
