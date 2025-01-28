@@ -21,10 +21,13 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 │   │   │   └── external_repository.py  # 外部APIなど本番用のデータ取得リポジトリ(将来的に)
 │   │   ├── models                   # DBモデルやORマッパーを使うならここに置く
 │   │   ├── utils                    # 共通ユーティリティ
+│   │   ├── data                     # 閲覧履歴がない時のデフォルトのトピックのデータを格納
+│   │   │   └── default_topics.py    # 閲覧履歴がない時に使用するデフォルトのトピック
 │   │   ├── prompt                   # プロンプトファイルを格納
-│   │   │   ├── create_topics_prompts.py  # create_topics用のPrompt
-│   │   │   ├── ghost_tone_prompts.py     # ghost_tone用のPrompt
-│   │   │   └── summary_prompts.py        # summary用のPrompt
+│   │   │   ├── create_topics_prompts.py      # create_topics用のPrompt
+│   │   │   ├── ghost_tone_prompts.py         # ghost_tone用のPrompt
+│   │   │   ├── ghost_tone_nohistory_prompts.py  # 閲覧履歴がない時に使うghost_tone用のPrompt
+│   │   │   └── summary_prompts.py            # summary用のPrompt
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
 │   │   ├── mockdata                 # テスト用のモックデータ
