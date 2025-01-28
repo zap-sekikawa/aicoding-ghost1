@@ -95,6 +95,23 @@ class GhostToneOutputItem(BaseModel):
     title: str
     content: str
 
+class SummarizedGhostToneOutputItem(BaseModel):
+    """
+    GhostToneOutputItem から要約を作成したあとの単一アイテムのスキーマ。
+    - ghost_id: 守護霊ID (1〜5の範囲を想定)
+    - item_index: 何番目の項目か
+    - summary: 要約後のテキスト
+    """
+    ghost_id: int
+    item_index: int
+    summary: str
+
+    @validator("ghost_id")
+    def ghost_id_must_be_in_range(cls, v):
+        if not (1 <= v <= 5):
+            raise ValueError(f"ghost_idが1〜5の範囲外です: {v}")
+        return v
+
 
 class SummaryResult(BaseModel):
     """

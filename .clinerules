@@ -1,3 +1,7 @@
+プロジェクトのルールに従って実装すること。
+docが存在する場合は、その実装方法を優先して実装すること。
+
+
 #プロジェクトのディレクトリ構成
 
 ```
@@ -24,15 +28,15 @@
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
 │   │   ├── mockdata                 # テスト用のモックデータ
-│   │   │   ├── client_input.json    # リクエストボディのモックデータ
-│   │   │   └── logic_data.xml       # テスト用のロジックデータ（XML）
+│   │   │   ├── client_input.json    # リクエストボディのモックデータ、※編集禁止
+│   │   │   └── logic_data.xml       # テスト用のロジックデータ（XML）、※編集禁止
 │   │   ├── test_endpoints           # エンドポイントのユニット/結合テスト
 │   │   ├── test_services            # サービス層のユニットテスト
 │   │   └── __init__.py             # テスト用パッケージ
 │   ├── config                       # 設定関連
-│   │   └── settings.py             # 環境変数や設定値を管理する
+│   │   └── settings.py             # 環境変数や設定値を管理する、※編集禁止
 │   ├── schema                       # Pydanticスキーマ
-│   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義
+│   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   └── __init__.py                 # Pythonパッケージとして認識させるためのファイル
 ├── cdk                              # AWS CDKによるIaC
 │   ├── app_runner_stack.py         # App Runner関連のスタック定義
@@ -40,11 +44,19 @@
 │   ├── requirements.txt            # CDKで利用するPythonライブラリの依存関係
 │   └── __init__.py                 # CDK用パッケージ
 ├── doc                              # ドキュメント類
-│   └── how_to_use_bedrock_claude.md  # Claude(Bedrock)を使ったLLM実装ガイド
+│   └── how_to_use_bedrock_claude.md  # Claude(Bedrock)を使ったLLM実装ガイド、※編集禁止
 ├── Dockerfile                       # Dockerビルド用
 ├── requirements.txt                 # アプリケーションのPython依存関係
 └── README.md                        # プロジェクト全体の説明
 
 
 ```
+#技術スタック
+ - python3.11
+ - fastAPI
+ - docker
+ - CI/CD : AWS CodePipeline/App Runner
+ - AWS CDK(python)
+ - コード管理：github
+
 
