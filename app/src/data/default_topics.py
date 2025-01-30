@@ -1,3 +1,5 @@
+from ..schema.schema import FortuneItems, FortuneItem
+
 DEFAULT_TOPICS = FortuneItems(
     items=[
         FortuneItem(title="運命を切り開く3つの行動指針"),

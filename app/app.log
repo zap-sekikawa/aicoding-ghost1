@@ -1,0 +1,979 @@
+2025-01-30 16:51:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 16:54:22 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 16:59:53 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:02:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:04:36 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:08:04 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:12:44 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:13:23 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:13:52 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:14:18 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:15:04 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:16:39 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:17:25 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:17:25 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:17:25 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:17:25 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:17:25 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:17:25 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:17:25 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:17:25 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:17:25 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:17:25 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:17:25 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:17:25 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:17:25 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:17:25 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:17:25 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:17:25 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x105594a40>
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/endpoint-rule-set-1.json.gz
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:17:25 - botocore.hooks - DEBUG - Event creating-client-class.bedrock-runtime: calling handler <function add_generate_presigned_url at 0x1054c9260>
+2025-01-30 17:17:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_service
+2025-01-30 17:17:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_global
+2025-01-30 17:17:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_service
+2025-01-30 17:17:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_global
+2025-01-30 17:17:25 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:17:25 - botocore.regions - DEBUG - Creating a regex based endpoint for bedrock-runtime, us-east-1
+2025-01-30 17:17:25 - botocore.endpoint - DEBUG - Setting bedrock-runtime timeout as (60, 60)
+2025-01-30 17:17:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:17:26 - botocore.client - DEBUG - Registering retry handlers for service: bedrock-runtime
+2025-01-30 17:17:26 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:17:26 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:17:26 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:17:26 - src.utils.llm_client - ERROR - Unexpected Error: 'BedrockRuntime' object has no attribute 'converse'
+2025-01-30 17:17:26 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'BedrockRuntime' object has no attribute 'converse'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 82, in call_claude_api
+    response = bedrock.converse(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'BedrockRuntime' object has no attribute 'converse'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 134, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'BedrockRuntime' object has no attribute 'converse'
+2025-01-30 17:18:25 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:18:25 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:20:02 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:20:02 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:20:15 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:20:15 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:20:15 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:20:15 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:20:15 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:20:15 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:20:15 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:20:15 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:20:15 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:20:15 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:20:15 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:20:15 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:20:15 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:20:15 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:20:15 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:20:15 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x104d74a40>
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/endpoint-rule-set-1.json.gz
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:20:15 - botocore.hooks - DEBUG - Event creating-client-class.bedrock-runtime: calling handler <function add_generate_presigned_url at 0x104ca9260>
+2025-01-30 17:20:15 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_service
+2025-01-30 17:20:15 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_global
+2025-01-30 17:20:15 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_service
+2025-01-30 17:20:15 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_global
+2025-01-30 17:20:15 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:20:15 - botocore.regions - DEBUG - Creating a regex based endpoint for bedrock-runtime, us-east-1
+2025-01-30 17:20:15 - botocore.endpoint - DEBUG - Setting bedrock-runtime timeout as (60, 60)
+2025-01-30 17:20:15 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:20:15 - botocore.client - DEBUG - Registering retry handlers for service: bedrock-runtime
+2025-01-30 17:20:15 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:20:15 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:20:15 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:20:15 - src.utils.llm_client - ERROR - Unexpected Error: 'BedrockRuntime' object has no attribute 'converse'
+2025-01-30 17:20:15 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'BedrockRuntime' object has no attribute 'converse'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 82, in call_claude_api
+    response = bedrock.converse(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'BedrockRuntime' object has no attribute 'converse'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 141, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'BedrockRuntime' object has no attribute 'converse'
+2025-01-30 17:21:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:21:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:21:36 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:21:36 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:21:51 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:21:51 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:21:51 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:21:51 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:21:51 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:21:51 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:21:51 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:21:51 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:21:51 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:21:51 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:21:51 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:21:51 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:21:51 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:21:51 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:21:51 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:21:51 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x105674a40>
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/service-2.json
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/endpoint-rule-set-1.json.gz
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:21:51 - botocore.hooks - DEBUG - Event creating-client-class.bedrock: calling handler <function add_generate_presigned_url at 0x1055a9260>
+2025-01-30 17:21:51 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_service
+2025-01-30 17:21:51 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_global
+2025-01-30 17:21:51 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_service
+2025-01-30 17:21:51 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_global
+2025-01-30 17:21:51 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:21:51 - botocore.endpoint - DEBUG - Setting bedrock timeout as (60, 60)
+2025-01-30 17:21:51 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:21:51 - botocore.client - DEBUG - Registering retry handlers for service: bedrock
+2025-01-30 17:21:51 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:21:51 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:21:51 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:21:51 - src.utils.llm_client - ERROR - Unexpected Error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 17:21:51 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'Bedrock' object has no attribute 'converse'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 82, in call_claude_api
+    response = bedrock.converse(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'Bedrock' object has no attribute 'converse'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 141, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 17:22:16 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:22:16 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:22:54 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:22:54 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:22:54 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:22:54 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:22:54 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:22:54 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:22:54 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:22:54 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:22:54 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:22:54 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:22:54 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:22:54 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:22:54 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:22:54 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:22:54 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:22:54 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x1036b4a40>
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/endpoint-rule-set-1.json.gz
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event creating-client-class.bedrock-runtime: calling handler <function add_generate_presigned_url at 0x1035e9260>
+2025-01-30 17:22:54 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_service
+2025-01-30 17:22:54 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_global
+2025-01-30 17:22:54 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_service
+2025-01-30 17:22:54 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_global
+2025-01-30 17:22:54 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:22:54 - botocore.regions - DEBUG - Creating a regex based endpoint for bedrock-runtime, us-east-1
+2025-01-30 17:22:54 - botocore.endpoint - DEBUG - Setting bedrock-runtime timeout as (60, 60)
+2025-01-30 17:22:54 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:22:54 - botocore.client - DEBUG - Registering retry handlers for service: bedrock-runtime
+2025-01-30 17:22:54 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:22:54 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:22:54 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event before-parameter-build.bedrock-runtime.InvokeModel: calling handler <function generate_idempotent_uuid at 0x1036b6200>
+2025-01-30 17:22:54 - botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Region': 'us-east-1', 'UseDualStack': False, 'UseFIPS': False}
+2025-01-30 17:22:54 - botocore.regions - DEBUG - Endpoint provider result: https://bedrock-runtime.us-east-1.amazonaws.com
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event before-call.bedrock-runtime.InvokeModel: calling handler <function add_recursion_detection_header at 0x1036b4ae0>
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event before-call.bedrock-runtime.InvokeModel: calling handler <function inject_api_version_header_if_needed at 0x1036b7ce0>
+2025-01-30 17:22:54 - botocore.endpoint - DEBUG - Making request for OperationModel(name=InvokeModel) with params: {'url_path': '/model/anthropic.claude-v2/invoke', 'query_string': {}, 'method': 'POST', 'headers': {'User-Agent': 'Boto3/1.29.0 md/Botocore#1.32.0 ua/2.0 os/macos#23.5.0 md/arch#arm64 lang/python#3.11.7 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.32.0'}, 'body': b'{"prompt": "\\n\\u3042\\u306a\\u305f\\u306f\\u719f\\u7df4\\u306e\\u5360\\u3044\\u5e2b\\u3067\\u3059\\u3002\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u5206\\u6790\\u3057\\u3001\\u305d\\u308c\\u306b\\u57fa\\u3065\\u3044\\u30666\\u3064\\u306e\\u5360\\u3044\\u9805\\u76ee\\u3092\\u4f5c\\u6210\\u3059\\u308b\\u4efb\\u52d9\\u304c\\u3042\\u308a\\u307e\\u3059\\u3002\\u4ee5\\u4e0b\\u306e\\u624b\\u9806\\u306b\\u5f93\\u3063\\u3066\\u4f5c\\u696d\\u3092\\u9032\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n\\u307e\\u305a\\u3001\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u78ba\\u8a8d\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\uff1a\\n\\n\\n\\u6b21\\u306b\\u3001\\u4ee5\\u4e0b\\u306e\\u624b\\u9806\\u306b\\u5f93\\u3063\\u3066\\u5360\\u3044\\u3092\\u884c\\u3063\\u3066\\u304f\\u3060\\u3055\\u3044\\uff1a\\n\\n1. \\u95b2\\u89a7\\u5c65\\u6b74\\u306e\\u5206\\u6790\\uff1a\\n   - \\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u8a73\\u7d30\\u306b\\u5206\\u6790\\u3057\\u3001\\u8208\\u5473\\u3084\\u95a2\\u5fc3\\u4e8b\\u3092\\u7279\\u5b9a\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n2. \\u5360\\u3044\\u9805\\u76ee\\u306e\\u4f5c\\u6210\\uff1a\\n   - \\u30e6\\u30fc\\u30b6\\u30fc\\u304c\\u73fe\\u5728\\u6c17\\u306b\\u306a\\u3063\\u3066\\u3044\\u308b\\u3067\\u3042\\u308d\\u3046\\u5360\\u3044\\u9805\\u76ee\\u30926\\u500b\\u4f5c\\u6210\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n   - \\u5404\\u9805\\u76ee\\u306b\\u306f\\u3001\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u8208\\u5473\\u3084\\u6700\\u8fd1\\u306e\\u884c\\u52d5\\u306b\\u95a2\\u9023\\u3057\\u305f\\u5185\\u5bb9\\u3092\\u542b\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n3. JSON\\u5f62\\u5f0f\\u3067\\u306e\\u51fa\\u529b\\uff1a\\n   - \\u7d50\\u679c\\u306f\\u5fc5\\u305aJSON\\u5f62\\u5f0f\\u3067\\u51fa\\u529b\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\u305d\\u308c\\u4ee5\\u5916\\u306f\\u7d76\\u5bfe\\u306b\\u51fa\\u529b\\u3057\\u306a\\u3044\\u3067\\u304f\\u3060\\u3055\\u3044\\u3002\\n   - \\u5404\\u5360\\u3044\\u9805\\u76ee\\u306b\\u306f\\u3001id\\uff08\\u6570\\u5b57\\uff09\\u3068title\\uff08\\u6587\\u5b57\\u5217\\uff09\\u3092\\u542b\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n\\u51fa\\u529b\\u5f62\\u5f0f\\u306e\\u4f8b\\uff1a\\n{\\n  \\"items\\": [\\n    {\\"title\\": \\"xxx\\"},\\n    {\\"title\\": \\"yyy\\"},\\n    ...\\n    {\\"title\\": \\"zzz\\"}  # 6 items\\n  ]\\n}\\n\\n\\n\\u6ce8\\u610f\\uff1a\\n- \\u5fc5\\u305a\\u65e5\\u672c\\u8a9e\\u3067\\u56de\\u7b54\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n- JSON\\u5f62\\u5f0f\\u306e\\u51fa\\u529b\\u3092\\u53b3\\u5b88\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\u69cb\\u9020\\u304c\\u6b63\\u3057\\u3044\\u3053\\u3068\\u3092\\u78ba\\u8a8d\\u3057\\u3066\\u304b\\u3089\\u6700\\u7d42\\u51fa\\u529b\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002`;\\n\\n\\n\\nHuman: \\u63d0\\u4f9b\\u3055\\u308c\\u305f\\u904e\\u53bb\\u5c65\\u6b74\\u30c7\\u30fc\\u30bf\\u306f\\u4ee5\\u4e0b\\u3067\\u3059: [{\\"category\\": \\"\\u8a95\\u751f\\u65e5\\u304c\\u5206\\u304b\\u3089\\u306a\\u3044\\u3042\\u306e\\u4eba\\u3068\\u306e\\u604b\\", \\"title\\": \\"\\u53cb\\u9054\\u3060\\u3051\\u3069\\u3001\\u5c11\\u3057\\u3067\\u3082\\u7570\\u6027\\u3092\\u610f\\u8b58\\u3057\\u3066\\u304f\\u308c\\u3066\\u308b\\uff1f\\"}, {\\"category\\": \\"\\", \\"title\\": \\"\\u5bb6\\u7de8\\"}, {\\"category\\": \\"\\u3042\\u306a\\u305f\\u306e\\u604b\\u306e\\u51fa\\u4f1a\\u3044\\", \\"title\\": \\"\\u79c1\\u306b\\u9b45\\u529b\\u3092\\u611f\\u3058\\u3066\\u304f\\u308c\\u308b\\u4eba\\u306f\\u3044\\u308b\\uff1f\\"}]\\n\\nAssistant:", "max_tokens_to_sample": 2000, "temperature": 0.0, "top_p": 0.9, "stop_sequences": ["\\n\\nHuman:"]}', 'url': 'https://bedrock-runtime.us-east-1.amazonaws.com/model/anthropic.claude-v2/invoke', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x103773dd0>, 'has_streaming_input': True, 'auth_type': None}}
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event request-created.bedrock-runtime.InvokeModel: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x103d85790>>
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event choose-signer.bedrock-runtime.InvokeModel: calling handler <function set_operation_specific_signer at 0x1036b60c0>
+2025-01-30 17:22:54 - botocore.auth - DEBUG - Calculating signature using v4 auth.
+2025-01-30 17:22:54 - botocore.auth - DEBUG - CanonicalRequest:
+POST
+/model/anthropic.claude-v2/invoke
+
+host:bedrock-runtime.us-east-1.amazonaws.com
+x-amz-date:20250130T082254Z
+
+host;x-amz-date
+39bcd28def350ff3842e9ea22051160fd3f6ab95ac93ac36647a3beca488997d
+2025-01-30 17:22:54 - botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250130T082254Z
+20250130/us-east-1/bedrock/aws4_request
+422d922edd9c362f8e63abdf2dfb9847850f377ba34628aaf49d12f06411c3d0
+2025-01-30 17:22:54 - botocore.auth - DEBUG - Signature:
+eecabba666eb69ceca02529a33bdce566d7345ac96446484a849781b45440d5d
+2025-01-30 17:22:54 - botocore.hooks - DEBUG - Event request-created.bedrock-runtime.InvokeModel: calling handler <function add_retry_headers at 0x1036d44a0>
+2025-01-30 17:22:54 - botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=True, method=POST, url=https://bedrock-runtime.us-east-1.amazonaws.com/model/anthropic.claude-v2/invoke, headers={'User-Agent': b'Boto3/1.29.0 md/Botocore#1.32.0 ua/2.0 os/macos#23.5.0 md/arch#arm64 lang/python#3.11.7 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.32.0', 'X-Amz-Date': b'20250130T082254Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAQ3EGPEABRVVNAPGC/20250130/us-east-1/bedrock/aws4_request, SignedHeaders=host;x-amz-date, Signature=eecabba666eb69ceca02529a33bdce566d7345ac96446484a849781b45440d5d', 'amz-sdk-invocation-id': b'86744904-e678-48d0-8740-c44df669ebac', 'amz-sdk-request': b'attempt=1', 'Content-Length': '3208'}>
+2025-01-30 17:22:54 - botocore.httpsession - DEBUG - Certificate path: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/certifi/cacert.pem
+2025-01-30 17:22:54 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): bedrock-runtime.us-east-1.amazonaws.com:443
+2025-01-30 17:22:55 - urllib3.connectionpool - DEBUG - https://bedrock-runtime.us-east-1.amazonaws.com:443 "POST /model/anthropic.claude-v2/invoke HTTP/1.1" 403 77
+2025-01-30 17:22:55 - botocore.parsers - DEBUG - Response headers: {'Date': 'Thu, 30 Jan 2025 08:22:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '77', 'Connection': 'keep-alive', 'x-amzn-RequestId': '6a9a4e5c-80e7-4caa-8155-8e4c7e07223f', 'x-amzn-ErrorType': 'AccessDeniedException:http://internal.amazon.com/coral/com.amazon.bedrock/'}
+2025-01-30 17:22:55 - botocore.parsers - DEBUG - Response body:
+b'{"message":"You don\'t have access to the model with the specified model ID."}'
+2025-01-30 17:22:55 - botocore.parsers - DEBUG - Response headers: {'Date': 'Thu, 30 Jan 2025 08:22:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '77', 'Connection': 'keep-alive', 'x-amzn-RequestId': '6a9a4e5c-80e7-4caa-8155-8e4c7e07223f', 'x-amzn-ErrorType': 'AccessDeniedException:http://internal.amazon.com/coral/com.amazon.bedrock/'}
+2025-01-30 17:22:55 - botocore.parsers - DEBUG - Response body:
+b'{"message":"You don\'t have access to the model with the specified model ID."}'
+2025-01-30 17:22:55 - botocore.hooks - DEBUG - Event needs-retry.bedrock-runtime.InvokeModel: calling handler <botocore.retryhandler.RetryHandler object at 0x103d8ead0>
+2025-01-30 17:22:55 - botocore.retryhandler - DEBUG - No retry needed.
+2025-01-30 17:22:55 - src.utils.llm_client - ERROR - Bedrock Client Error: AccessDeniedException - You don't have access to the model with the specified model ID.
+2025-01-30 17:22:55 - src.endpoints.fortune - ERROR - トピック生成エラー: AccessDeniedException: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 96, in call_claude_api
+    response = bedrock.invoke_model(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 535, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 983, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 119, in call_claude_api
+    raise BedrockClientError(f"{error_code}: {error_message}")
+src.utils.llm_client.BedrockClientError: AccessDeniedException: You don't have access to the model with the specified model ID.
+2025-01-30 17:23:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:23:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:23:28 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:23:28 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:23:28 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:23:28 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:23:28 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:23:28 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:23:28 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:23:28 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:23:28 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:23:28 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:23:28 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:23:28 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:23:28 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:23:28 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:23:28 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:23:28 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x108774a40>
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/endpoint-rule-set-1.json.gz
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event creating-client-class.bedrock-runtime: calling handler <function add_generate_presigned_url at 0x1084a9260>
+2025-01-30 17:23:28 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_service
+2025-01-30 17:23:28 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_global
+2025-01-30 17:23:28 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_service
+2025-01-30 17:23:28 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_global
+2025-01-30 17:23:28 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:23:28 - botocore.regions - DEBUG - Creating a regex based endpoint for bedrock-runtime, us-east-1
+2025-01-30 17:23:28 - botocore.endpoint - DEBUG - Setting bedrock-runtime timeout as (60, 60)
+2025-01-30 17:23:28 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:23:28 - botocore.client - DEBUG - Registering retry handlers for service: bedrock-runtime
+2025-01-30 17:23:28 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:23:28 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:23:28 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event before-parameter-build.bedrock-runtime.InvokeModel: calling handler <function generate_idempotent_uuid at 0x108776200>
+2025-01-30 17:23:28 - botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Region': 'us-east-1', 'UseDualStack': False, 'UseFIPS': False}
+2025-01-30 17:23:28 - botocore.regions - DEBUG - Endpoint provider result: https://bedrock-runtime.us-east-1.amazonaws.com
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event before-call.bedrock-runtime.InvokeModel: calling handler <function add_recursion_detection_header at 0x108774ae0>
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event before-call.bedrock-runtime.InvokeModel: calling handler <function inject_api_version_header_if_needed at 0x108777ce0>
+2025-01-30 17:23:28 - botocore.endpoint - DEBUG - Making request for OperationModel(name=InvokeModel) with params: {'url_path': '/model/anthropic.claude-3-sonnet-20240229-v1%3A0/invoke', 'query_string': {}, 'method': 'POST', 'headers': {'User-Agent': 'Boto3/1.29.0 md/Botocore#1.32.0 ua/2.0 os/macos#23.5.0 md/arch#arm64 lang/python#3.11.7 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.32.0'}, 'body': b'{"prompt": "\\n\\u3042\\u306a\\u305f\\u306f\\u719f\\u7df4\\u306e\\u5360\\u3044\\u5e2b\\u3067\\u3059\\u3002\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u5206\\u6790\\u3057\\u3001\\u305d\\u308c\\u306b\\u57fa\\u3065\\u3044\\u30666\\u3064\\u306e\\u5360\\u3044\\u9805\\u76ee\\u3092\\u4f5c\\u6210\\u3059\\u308b\\u4efb\\u52d9\\u304c\\u3042\\u308a\\u307e\\u3059\\u3002\\u4ee5\\u4e0b\\u306e\\u624b\\u9806\\u306b\\u5f93\\u3063\\u3066\\u4f5c\\u696d\\u3092\\u9032\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n\\u307e\\u305a\\u3001\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u78ba\\u8a8d\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\uff1a\\n\\n\\n\\u6b21\\u306b\\u3001\\u4ee5\\u4e0b\\u306e\\u624b\\u9806\\u306b\\u5f93\\u3063\\u3066\\u5360\\u3044\\u3092\\u884c\\u3063\\u3066\\u304f\\u3060\\u3055\\u3044\\uff1a\\n\\n1. \\u95b2\\u89a7\\u5c65\\u6b74\\u306e\\u5206\\u6790\\uff1a\\n   - \\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u95b2\\u89a7\\u5c65\\u6b74\\u3092\\u8a73\\u7d30\\u306b\\u5206\\u6790\\u3057\\u3001\\u8208\\u5473\\u3084\\u95a2\\u5fc3\\u4e8b\\u3092\\u7279\\u5b9a\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n2. \\u5360\\u3044\\u9805\\u76ee\\u306e\\u4f5c\\u6210\\uff1a\\n   - \\u30e6\\u30fc\\u30b6\\u30fc\\u304c\\u73fe\\u5728\\u6c17\\u306b\\u306a\\u3063\\u3066\\u3044\\u308b\\u3067\\u3042\\u308d\\u3046\\u5360\\u3044\\u9805\\u76ee\\u30926\\u500b\\u4f5c\\u6210\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n   - \\u5404\\u9805\\u76ee\\u306b\\u306f\\u3001\\u30e6\\u30fc\\u30b6\\u30fc\\u306e\\u8208\\u5473\\u3084\\u6700\\u8fd1\\u306e\\u884c\\u52d5\\u306b\\u95a2\\u9023\\u3057\\u305f\\u5185\\u5bb9\\u3092\\u542b\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n3. JSON\\u5f62\\u5f0f\\u3067\\u306e\\u51fa\\u529b\\uff1a\\n   - \\u7d50\\u679c\\u306f\\u5fc5\\u305aJSON\\u5f62\\u5f0f\\u3067\\u51fa\\u529b\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\u305d\\u308c\\u4ee5\\u5916\\u306f\\u7d76\\u5bfe\\u306b\\u51fa\\u529b\\u3057\\u306a\\u3044\\u3067\\u304f\\u3060\\u3055\\u3044\\u3002\\n   - \\u5404\\u5360\\u3044\\u9805\\u76ee\\u306b\\u306f\\u3001id\\uff08\\u6570\\u5b57\\uff09\\u3068title\\uff08\\u6587\\u5b57\\u5217\\uff09\\u3092\\u542b\\u3081\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n\\n\\u51fa\\u529b\\u5f62\\u5f0f\\u306e\\u4f8b\\uff1a\\n{\\n  \\"items\\": [\\n    {\\"title\\": \\"xxx\\"},\\n    {\\"title\\": \\"yyy\\"},\\n    ...\\n    {\\"title\\": \\"zzz\\"}  # 6 items\\n  ]\\n}\\n\\n\\n\\u6ce8\\u610f\\uff1a\\n- \\u5fc5\\u305a\\u65e5\\u672c\\u8a9e\\u3067\\u56de\\u7b54\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\n- JSON\\u5f62\\u5f0f\\u306e\\u51fa\\u529b\\u3092\\u53b3\\u5b88\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002\\u69cb\\u9020\\u304c\\u6b63\\u3057\\u3044\\u3053\\u3068\\u3092\\u78ba\\u8a8d\\u3057\\u3066\\u304b\\u3089\\u6700\\u7d42\\u51fa\\u529b\\u3057\\u3066\\u304f\\u3060\\u3055\\u3044\\u3002`;\\n\\n\\n\\nHuman: \\u63d0\\u4f9b\\u3055\\u308c\\u305f\\u904e\\u53bb\\u5c65\\u6b74\\u30c7\\u30fc\\u30bf\\u306f\\u4ee5\\u4e0b\\u3067\\u3059: [{\\"category\\": \\"\\u8a95\\u751f\\u65e5\\u304c\\u5206\\u304b\\u3089\\u306a\\u3044\\u3042\\u306e\\u4eba\\u3068\\u306e\\u604b\\", \\"title\\": \\"\\u53cb\\u9054\\u3060\\u3051\\u3069\\u3001\\u5c11\\u3057\\u3067\\u3082\\u7570\\u6027\\u3092\\u610f\\u8b58\\u3057\\u3066\\u304f\\u308c\\u3066\\u308b\\uff1f\\"}, {\\"category\\": \\"\\", \\"title\\": \\"\\u5bb6\\u7de8\\"}, {\\"category\\": \\"\\u3042\\u306a\\u305f\\u306e\\u604b\\u306e\\u51fa\\u4f1a\\u3044\\", \\"title\\": \\"\\u79c1\\u306b\\u9b45\\u529b\\u3092\\u611f\\u3058\\u3066\\u304f\\u308c\\u308b\\u4eba\\u306f\\u3044\\u308b\\uff1f\\"}]\\n\\nAssistant:", "max_tokens_to_sample": 2000, "temperature": 0.0, "top_p": 0.9, "stop_sequences": ["\\n\\nHuman:"]}', 'url': 'https://bedrock-runtime.us-east-1.amazonaws.com/model/anthropic.claude-3-sonnet-20240229-v1%3A0/invoke', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x10d8052d0>, 'has_streaming_input': True, 'auth_type': None}}
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event request-created.bedrock-runtime.InvokeModel: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x108257c10>>
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event choose-signer.bedrock-runtime.InvokeModel: calling handler <function set_operation_specific_signer at 0x1087760c0>
+2025-01-30 17:23:28 - botocore.auth - DEBUG - Calculating signature using v4 auth.
+2025-01-30 17:23:28 - botocore.auth - DEBUG - CanonicalRequest:
+POST
+/model/anthropic.claude-3-sonnet-20240229-v1%253A0/invoke
+
+host:bedrock-runtime.us-east-1.amazonaws.com
+x-amz-date:20250130T082328Z
+
+host;x-amz-date
+39bcd28def350ff3842e9ea22051160fd3f6ab95ac93ac36647a3beca488997d
+2025-01-30 17:23:28 - botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250130T082328Z
+20250130/us-east-1/bedrock/aws4_request
+c3d865fab5de4d2ad6819a6aba92b3527fe078cb122fbdaaa67b949aaadff76e
+2025-01-30 17:23:28 - botocore.auth - DEBUG - Signature:
+a6059d1bca4432f36a91ef502d72f8c801c5574f6894fb969fb3244fc501ef2c
+2025-01-30 17:23:28 - botocore.hooks - DEBUG - Event request-created.bedrock-runtime.InvokeModel: calling handler <function add_retry_headers at 0x1087944a0>
+2025-01-30 17:23:28 - botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=True, method=POST, url=https://bedrock-runtime.us-east-1.amazonaws.com/model/anthropic.claude-3-sonnet-20240229-v1%3A0/invoke, headers={'User-Agent': b'Boto3/1.29.0 md/Botocore#1.32.0 ua/2.0 os/macos#23.5.0 md/arch#arm64 lang/python#3.11.7 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.32.0', 'X-Amz-Date': b'20250130T082328Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAQ3EGPEABRVVNAPGC/20250130/us-east-1/bedrock/aws4_request, SignedHeaders=host;x-amz-date, Signature=a6059d1bca4432f36a91ef502d72f8c801c5574f6894fb969fb3244fc501ef2c', 'amz-sdk-invocation-id': b'917deeec-5d06-4044-a2ba-b25514c8fb5c', 'amz-sdk-request': b'attempt=1', 'Content-Length': '3208'}>
+2025-01-30 17:23:28 - botocore.httpsession - DEBUG - Certificate path: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/certifi/cacert.pem
+2025-01-30 17:23:28 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): bedrock-runtime.us-east-1.amazonaws.com:443
+2025-01-30 17:23:29 - urllib3.connectionpool - DEBUG - https://bedrock-runtime.us-east-1.amazonaws.com:443 "POST /model/anthropic.claude-3-sonnet-20240229-v1%3A0/invoke HTTP/1.1" 400 109
+2025-01-30 17:23:29 - botocore.parsers - DEBUG - Response headers: {'Date': 'Thu, 30 Jan 2025 08:23:29 GMT', 'Content-Type': 'application/json', 'Content-Length': '109', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'ea8fc14f-5224-4940-ad9d-ca069ade260b', 'x-amzn-ErrorType': 'ValidationException:http://internal.amazon.com/coral/com.amazon.bedrock/'}
+2025-01-30 17:23:29 - botocore.parsers - DEBUG - Response body:
+b'{"message":"\\"claude-3-sonnet-20240229\\" is not supported on this API. Please use the Messages API instead."}'
+2025-01-30 17:23:29 - botocore.parsers - DEBUG - Response headers: {'Date': 'Thu, 30 Jan 2025 08:23:29 GMT', 'Content-Type': 'application/json', 'Content-Length': '109', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'ea8fc14f-5224-4940-ad9d-ca069ade260b', 'x-amzn-ErrorType': 'ValidationException:http://internal.amazon.com/coral/com.amazon.bedrock/'}
+2025-01-30 17:23:29 - botocore.parsers - DEBUG - Response body:
+b'{"message":"\\"claude-3-sonnet-20240229\\" is not supported on this API. Please use the Messages API instead."}'
+2025-01-30 17:23:29 - botocore.hooks - DEBUG - Event needs-retry.bedrock-runtime.InvokeModel: calling handler <botocore.retryhandler.RetryHandler object at 0x10d812690>
+2025-01-30 17:23:29 - botocore.retryhandler - DEBUG - No retry needed.
+2025-01-30 17:23:29 - src.utils.llm_client - ERROR - Bedrock Client Error: ValidationException - "claude-3-sonnet-20240229" is not supported on this API. Please use the Messages API instead.
+2025-01-30 17:23:29 - src.endpoints.fortune - ERROR - トピック生成エラー: ValidationException: "claude-3-sonnet-20240229" is not supported on this API. Please use the Messages API instead.
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 96, in call_claude_api
+    response = bedrock.invoke_model(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 535, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 983, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ValidationException: An error occurred (ValidationException) when calling the InvokeModel operation: "claude-3-sonnet-20240229" is not supported on this API. Please use the Messages API instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 119, in call_claude_api
+    raise BedrockClientError(f"{error_code}: {error_message}")
+src.utils.llm_client.BedrockClientError: ValidationException: "claude-3-sonnet-20240229" is not supported on this API. Please use the Messages API instead.
+2025-01-30 17:23:44 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:23:44 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:26:54 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:26:54 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:27:05 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:27:05 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:27:05 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:27:05 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:27:05 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:27:05 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:27:05 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:27:05 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:27:05 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:27:05 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:27:05 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:27:05 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:27:05 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:27:05 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:27:05 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:27:05 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:27:05 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:27:05 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x103a74a40>
+2025-01-30 17:27:05 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+2025-01-30 17:27:05 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock-runtime/2023-09-30/endpoint-rule-set-1.json.gz
+2025-01-30 17:27:05 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:27:05 - botocore.hooks - DEBUG - Event creating-client-class.bedrock-runtime: calling handler <function add_generate_presigned_url at 0x1036a9260>
+2025-01-30 17:27:05 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_service
+2025-01-30 17:27:05 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: environment_global
+2025-01-30 17:27:05 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_service
+2025-01-30 17:27:05 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock-runtime via: config_global
+2025-01-30 17:27:05 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:27:05 - botocore.regions - DEBUG - Creating a regex based endpoint for bedrock-runtime, us-east-1
+2025-01-30 17:27:06 - botocore.endpoint - DEBUG - Setting bedrock-runtime timeout as (60, 60)
+2025-01-30 17:27:06 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:27:06 - botocore.client - DEBUG - Registering retry handlers for service: bedrock-runtime
+2025-01-30 17:27:06 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:27:06 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:27:06 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:27:06 - src.utils.llm_client - DEBUG - リクエストボディ: {
+  "prompt": "\nあなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。\n\nまず、ユーザーの閲覧履歴を確認してください：\n\n\n次に、以下の手順に従って占いを行ってください：\n\n1. 閲覧履歴の分析：\n   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。\n\n2. 占い項目の作成：\n   - ユーザーが現在気になっているであろう占い項目を6個作成してください。\n   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。\n\n3. JSON形式での出力：\n   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。\n   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。\n\n出力形式の例：\n{\n  \"items\": [\n    {\"title\": \"xxx\"},\n    {\"title\": \"yyy\"},\n    ...\n    {\"title\": \"zzz\"}  # 6 items\n  ]\n}\n\n\n注意：\n- 必ず日本語で回答してください。\n- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;\n\n\n\nHuman: 提供された過去履歴データは以下です: [{\"category\": \"誕生日が分からないあの人との恋\", \"title\": \"友達だけど、少しでも異性を意識してくれてる？\"}, {\"category\": \"\", \"title\": \"家編\"}, {\"category\": \"あなたの恋の出会い\", \"title\": \"私に魅力を感じてくれる人はいる？\"}]\n\nAssistant:",
+  "max_tokens_to_sample": 2000,
+  "temperature": 0.0,
+  "top_p": 0.9,
+  "stop_sequences": [
+    "\n\nHuman:"
+  ]
+}
+2025-01-30 17:27:06 - src.utils.llm_client - DEBUG - 利用可能なモデル一覧を取得
+2025-01-30 17:27:06 - src.utils.llm_client - ERROR - Unexpected Error: 'BedrockRuntime' object has no attribute 'list_foundation_models'
+2025-01-30 17:27:06 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'BedrockRuntime' object has no attribute 'list_foundation_models'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 97, in call_claude_api
+    models = bedrock.list_foundation_models()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'BedrockRuntime' object has no attribute 'list_foundation_models'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 148, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'BedrockRuntime' object has no attribute 'list_foundation_models'
+2025-01-30 17:58:29 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:58:29 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:59:47 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:59:47 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 17:59:57 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:59:57 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 17:59:57 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 17:59:57 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 17:59:57 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 17:59:57 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 17:59:57 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 17:59:57 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 17:59:57 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 17:59:57 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 17:59:57 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 17:59:57 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 17:59:57 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 17:59:57 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 17:59:57 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 17:59:57 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 17:59:57 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 17:59:57 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x10a9b4a40>
+2025-01-30 17:59:57 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/service-2.json
+2025-01-30 17:59:57 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/endpoint-rule-set-1.json.gz
+2025-01-30 17:59:57 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 17:59:57 - botocore.hooks - DEBUG - Event creating-client-class.bedrock: calling handler <function add_generate_presigned_url at 0x10a8e9260>
+2025-01-30 17:59:57 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_service
+2025-01-30 17:59:57 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_global
+2025-01-30 17:59:57 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_service
+2025-01-30 17:59:57 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_global
+2025-01-30 17:59:57 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 17:59:58 - botocore.endpoint - DEBUG - Setting bedrock timeout as (60, 60)
+2025-01-30 17:59:58 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 17:59:58 - botocore.client - DEBUG - Registering retry handlers for service: bedrock
+2025-01-30 17:59:58 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 17:59:58 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 17:59:58 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 17:59:58 - src.utils.llm_client - DEBUG - converseを呼び出し
+2025-01-30 17:59:58 - src.utils.llm_client - ERROR - Unexpected Error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 17:59:58 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'Bedrock' object has no attribute 'converse'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 84, in call_claude_api
+    response = bedrock.converse(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'Bedrock' object has no attribute 'converse'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 143, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 18:21:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:21:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:21:25 - src.endpoints.fortune - INFO - リクエスト受信: datetime='2025-01-23' birthday='1999-01-01' browsing_history=[BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 18:21:25 - src.endpoints.fortune - DEBUG - 閲覧履歴: [BrowsingHistory(category='誕生日が分からないあの人との恋', title='友達だけど、少しでも異性を意識してくれてる？'), BrowsingHistory(category='', title='家編'), BrowsingHistory(category='あなたの恋の出会い', title='私に魅力を感じてくれる人はいる？')]
+2025-01-30 18:21:25 - src.endpoints.fortune - INFO - 閲覧履歴あり: トピック生成開始
+2025-01-30 18:21:25 - src.services.create_topics_service - INFO - create_topics処理を開始します
+2025-01-30 18:21:25 - src.services.create_topics_service - DEBUG - システムプロンプト: 
+あなたは熟練の占い師です。ユーザーの閲覧履歴を分析し、それに基づいて6つの占い項目を作成する任務があります。以下の手順に従って作業を進めてください。
+
+まず、ユーザーの閲覧履歴を確認してください：
+
+
+次に、以下の手順に従って占いを行ってください：
+
+1. 閲覧履歴の分析：
+   - ユーザーの閲覧履歴を詳細に分析し、興味や関心事を特定してください。
+
+2. 占い項目の作成：
+   - ユーザーが現在気になっているであろう占い項目を6個作成してください。
+   - 各項目には、ユーザーの興味や最近の行動に関連した内容を含めてください。
+
+3. JSON形式での出力：
+   - 結果は必ずJSON形式で出力してください。それ以外は絶対に出力しないでください。
+   - 各占い項目には、id（数字）とtitle（文字列）を含めてください。
+
+出力形式の例：
+{
+  "items": [
+    {"title": "xxx"},
+    {"title": "yyy"},
+    ...
+    {"title": "zzz"}  # 6 items
+  ]
+}
+
+
+注意：
+- 必ず日本語で回答してください。
+- JSON形式の出力を厳守してください。構造が正しいことを確認してから最終出力してください。`;
+
+
+2025-01-30 18:21:25 - src.services.create_topics_service - DEBUG - ユーザープロンプト: 提供された過去履歴データは以下です: [{"category": "誕生日が分からないあの人との恋", "title": "友達だけど、少しでも異性を意識してくれてる？"}, {"category": "", "title": "家編"}, {"category": "あなたの恋の出会い", "title": "私に魅力を感じてくれる人はいる？"}]
+2025-01-30 18:21:25 - src.services.create_topics_service - INFO - LLMを呼び出します
+2025-01-30 18:21:25 - src.utils.llm_client - INFO - Claude API呼び出しを開始
+2025-01-30 18:21:25 - src.utils.llm_client - DEBUG - Bedrockクライアントを初期化
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-01-30 18:21:25 - botocore.utils - DEBUG - IMDS ENDPOINT: http://169.254.169.254/
+2025-01-30 18:21:25 - botocore.credentials - DEBUG - Looking for credentials via: env
+2025-01-30 18:21:25 - botocore.credentials - DEBUG - Looking for credentials via: assume-role
+2025-01-30 18:21:25 - botocore.credentials - DEBUG - Looking for credentials via: assume-role-with-web-identity
+2025-01-30 18:21:25 - botocore.credentials - DEBUG - Looking for credentials via: sso
+2025-01-30 18:21:25 - botocore.credentials - DEBUG - Looking for credentials via: shared-credentials-file
+2025-01-30 18:21:25 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/endpoints.json
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/sdk-default-configuration.json
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x107274a40>
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/service-2.json
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/bedrock/2023-04-20/endpoint-rule-set-1.json.gz
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/partitions.json
+2025-01-30 18:21:25 - botocore.hooks - DEBUG - Event creating-client-class.bedrock: calling handler <function add_generate_presigned_url at 0x106ee9260>
+2025-01-30 18:21:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_service
+2025-01-30 18:21:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: environment_global
+2025-01-30 18:21:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_service
+2025-01-30 18:21:25 - botocore.configprovider - DEBUG - Looking for endpoint for bedrock via: config_global
+2025-01-30 18:21:25 - botocore.configprovider - DEBUG - No configured endpoint found.
+2025-01-30 18:21:25 - botocore.endpoint - DEBUG - Setting bedrock timeout as (60, 60)
+2025-01-30 18:21:25 - botocore.loaders - DEBUG - Loading JSON file: /Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/data/_retry.json
+2025-01-30 18:21:25 - botocore.client - DEBUG - Registering retry handlers for service: bedrock
+2025-01-30 18:21:25 - src.utils.llm_client - DEBUG - リクエストボディを構築
+2025-01-30 18:21:25 - src.utils.llm_client - DEBUG - API呼び出しを開始 (最大リトライ回数: 6)
+2025-01-30 18:21:25 - src.utils.llm_client - DEBUG - API呼び出し試行 (試行回数: 1)
+2025-01-30 18:21:25 - src.utils.llm_client - DEBUG - converseを呼び出し
+2025-01-30 18:21:25 - src.utils.llm_client - ERROR - Unexpected Error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 18:21:25 - src.endpoints.fortune - ERROR - トピック生成エラー: Unexpected error: 'Bedrock' object has no attribute 'converse'
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 84, in call_claude_api
+    response = bedrock.converse(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/.venv/lib/python3.11/site-packages/botocore/client.py", line 888, in __getattr__
+    raise AttributeError(
+AttributeError: 'Bedrock' object has no attribute 'converse'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/endpoints/fortune.py", line 54, in get_fortune
+    fortune_items = create_topics(browsing_history)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/services/create_topics_service.py", line 38, in create_topics
+    llm_response = call_claude_api(
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/sekikawa/Documents/20250130-aicoding/aicoding-ghost1/app/src/utils/llm_client.py", line 144, in call_claude_api
+    raise BedrockError(f"Unexpected error: {str(e)}")
+src.utils.llm_client.BedrockError: Unexpected error: 'Bedrock' object has no attribute 'converse'
+2025-01-30 18:23:11 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:23:11 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:25:10 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:25:10 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:33:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:33:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:41:39 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:41:39 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:42:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:42:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:42:26 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:42:26 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:43:45 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:43:45 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:44:36 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:44:36 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:47:46 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:47:46 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:47:53 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:47:53 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:48:08 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:48:09 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:48:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:48:12 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:59:40 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 18:59:40 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:00:26 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:00:26 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:02:31 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:02:31 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:02:55 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:02:55 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:03:19 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:03:19 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:08:58 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 19:08:58 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 20:24:39 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0
+2025-01-30 20:24:39 - src.main - INFO - アプリケーション起動: Fortune API v1.0.0

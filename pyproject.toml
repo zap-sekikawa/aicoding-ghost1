@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aicoding-ghost1"
+version = "0.1.0"
+description = "運勢API"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "app/src",
+    "app/tests"
+]
+testpaths = [
+    "app/tests"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app/src"]
