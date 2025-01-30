@@ -24,7 +24,7 @@
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
 │   │   ├── mockdata                 # テスト用のモックデータ
-│   │   │   ├── view_history.json    # 閲覧履歴モックデータ
+│   │   │   ├── client_input.json    # リクエストボディのモックデータ
 │   │   │   └── logic_data.xml       # テスト用のロジックデータ（XML）
 │   │   ├── test_endpoints           # エンドポイントのユニット/結合テスト
 │   │   ├── test_services            # サービス層のユニットテスト
@@ -44,6 +44,7 @@
 ├── Dockerfile                       # Dockerビルド用
 ├── requirements.txt                 # アプリケーションのPython依存関係
 └── README.md                        # プロジェクト全体の説明
+
 
 ```
 
