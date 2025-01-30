@@ -6,28 +6,31 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 
 ```
 .
+├── .env                               # 環境変数ファイル（※通常.gitignore対象）※読み取り、編集禁止
 ├── app                                # アプリケーションのルートフォルダ
 │   ├── src                            # ソースコード
 │   │   ├── main.py                   # FastAPIエントリポイント
 │   │   ├── endpoints                 # ルーティングやエンドポイントを定義
 │   │   │   └── fortune.py            # /fortune 等のエンドポイント例
 │   │   ├── services                  # ビジネスロジックやLLM呼出し処理などをまとめる
-│   │   │   ├── create_topics_service.py      # create_topics用サービス
-│   │   │   ├── parse_logic_data_service.py   # XMLをパースしてLogicDataを生成するサービス
-│   │   │   ├── ghost_tone_service.py         # ghost_tone_model（LLM）呼び出し
-│   │   │   └── summary_service.py            # 内容を20文字以内で要約するサービス
+│   │   │   ├── create_topics_service.py       # create_topics用サービス
+│   │   │   ├── parse_logic_data_service.py    # XMLをパースしてLogicDataを生成するサービス
+│   │   │   ├── ghost_tone_service.py          # ghost_tone_model（LLM）呼び出し
+│   │   │   ├── summary_service.py             # 内容を20文字以内で要約するサービス
+│   │   │   └── fortune_block_service.py       # 分割処理など
 │   │   ├── repository               # データ取得リポジトリ
 │   │   │   ├── mock_repository.py   # mockdataからデータ取得するリポジトリ
 │   │   │   └── external_repository.py  # 外部APIなど本番用のデータ取得リポジトリ(将来的に)
 │   │   ├── models                   # DBモデルやORマッパーを使うならここに置く
 │   │   ├── utils                    # 共通ユーティリティ
+│   │   │   └── llm_client.py        # 実際にClaude API呼び出しなどを行う処理
 │   │   ├── data                     # 閲覧履歴がない時のデフォルトのトピックのデータを格納
 │   │   │   └── default_topics.py    # 閲覧履歴がない時に使用するデフォルトのトピック
 │   │   ├── prompt                   # プロンプトファイルを格納
-│   │   │   ├── create_topics_prompts.py      # create_topics用のPrompt
-│   │   │   ├── ghost_tone_prompts.py         # ghost_tone用のPrompt
+│   │   │   ├── create_topics_prompts.py       # create_topics用のPrompt
+│   │   │   ├── ghost_tone_prompts.py          # ghost_tone用のPrompt
 │   │   │   ├── ghost_tone_nohistory_prompts.py  # 閲覧履歴がない時に使うghost_tone用のPrompt
-│   │   │   └── summary_prompts.py            # summary用のPrompt
+│   │   │   └── summary_prompts.py             # summary用のPrompt
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
 │   │   ├── mockdata                 # テスト用のモックデータ
@@ -37,7 +40,7 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 │   │   ├── test_services            # サービス層のユニットテスト
 │   │   └── __init__.py             # テスト用パッケージ
 │   ├── config                       # 設定関連
-│   │   └── settings.py             # 環境変数や設定値を管理する、※編集禁止
+│   │   └── settings.py             # 設定値を管理する
 │   ├── schema                       # Pydanticスキーマ
 │   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   └── __init__.py                 # Pythonパッケージとして認識させるためのファイル
@@ -63,3 +66,23 @@ docが存在する場合は、その実装方法を優先して実装するこ�
  - コード管理：github
 
 
+## Sensitive Files
+
+DO NOT read or modify:
+
+-   .env files
+-   *_/config/secrets._
+-   *_/*.pem
+-   Any file containing API keys, tokens, or credentials
+
+## Security Practices
+
+-   Never commit sensitive files
+-   Use environment variables for secrets
+-   Keep credentials out of logs and output
+
+## Testing Standards
+
+-   Unit tests required for business logic
+-   Integration tests for API endpoints
+-   E2E tests for critical user flows
