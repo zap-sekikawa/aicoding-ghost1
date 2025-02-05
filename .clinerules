@@ -31,6 +31,10 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 │   │   │   ├── ghost_tone_prompts.py          # ghost_tone用のPrompt
 │   │   │   ├── ghost_tone_nohistory_prompts.py  # 閲覧履歴がない時に使うghost_tone用のPrompt
 │   │   │   └── summary_prompts.py             # summary用のPrompt
+│   │   ├── config                       # 設定関連
+│   │   │   └── settings.py             # 設定値を管理する
+│   │   ├── schema                       # Pydanticスキーマ
+│   │   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
 │   │   ├── mockdata                 # テスト用のモックデータ
@@ -39,10 +43,6 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 │   │   ├── test_endpoints           # エンドポイントのユニット/結合テスト
 │   │   ├── test_services            # サービス層のユニットテスト
 │   │   └── __init__.py             # テスト用パッケージ
-│   ├── config                       # 設定関連
-│   │   └── settings.py             # 設定値を管理する
-│   ├── schema                       # Pydanticスキーマ
-│   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   └── __init__.py                 # Pythonパッケージとして認識させるためのファイル
 ├── cdk                              # AWS CDKによるIaC
 │   ├── app_runner_stack.py         # App Runner関連のスタック定義
@@ -51,6 +51,8 @@ docが存在する場合は、その実装方法を優先して実装するこ�
 │   └── __init__.py                 # CDK用パッケージ
 ├── doc                              # ドキュメント類
 │   └── how_to_use_bedrock_claude.md  # Claude(Bedrock)を使ったLLM実装ガイド、※編集禁止
+├── env.example                       # 環境変数のサンプル
+├── .gitignore                       # git管理除外ファイル
 ├── Dockerfile                       # Dockerビルド用
 ├── requirements.txt                 # アプリケーションのPython依存関係
 └── README.md                        # プロジェクト全体の説明

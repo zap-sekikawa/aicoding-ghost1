@@ -85,31 +85,33 @@ npm install -g aws-cdk
 │   │   │   ├── create_topics_service.py       # create_topics用サービス
 │   │   │   ├── parse_logic_data_service.py    # XMLをパースしてLogicDataを生成するサービス
 │   │   │   ├── ghost_tone_service.py          # ghost_tone_model（LLM）呼び出し
-│   │   │   └── summary_service.py             # 内容を20文字以内で要約するサービス
+│   │   │   ├── summary_service.py             # 内容を20文字以内で要約するサービス
+│   │   │   └── fortune_block_service.py       # 分割処理など
 │   │   ├── repository               # データ取得リポジトリ
 │   │   │   ├── mock_repository.py   # mockdataからデータ取得するリポジトリ
 │   │   │   └── external_repository.py  # 外部APIなど本番用のデータ取得リポジトリ(将来的に)
 │   │   ├── models                   # DBモデルやORマッパーを使うならここに置く
 │   │   ├── utils                    # 共通ユーティリティ
+│   │   │   └── llm_client.py        # 実際にClaude API呼び出しなどを行う処理
 │   │   ├── data                     # 閲覧履歴がない時のデフォルトのトピックのデータを格納
-│   │   │   └── default_topics.py    # 閲覧履歴がない時に使用するデフォルトのトピックすでに作成済み
-│   │   ├── prompt                   # プロンプトファイルを格納、すでに作成済み
-│   │   │   ├── create_topics_prompts.py       # create_topics用のPromptすでに作成済み
-│   │   │   ├── ghost_tone_prompts.py          # ghost_tone用のPromptすでに作成済み
-│   │   │   ├── ghost_tone_nohistory_prompts.py  # 閲覧履歴がない時に使うghost_tone用のPromptすでに作成済み
-│   │   │   └── summary_prompts.py             # summary用のPromptすでに作成済み
+│   │   │   └── default_topics.py    # 閲覧履歴がない時に使用するデフォルトのトピック
+│   │   ├── prompt                   # プロンプトファイルを格納
+│   │   │   ├── create_topics_prompts.py       # create_topics用のPrompt
+│   │   │   ├── ghost_tone_prompts.py          # ghost_tone用のPrompt
+│   │   │   ├── ghost_tone_nohistory_prompts.py  # 閲覧履歴がない時に使うghost_tone用のPrompt
+│   │   │   └── summary_prompts.py             # summary用のPrompt
+│   │   ├── config                       # 設定関連
+│   │   │   └── settings.py             # 設定値を管理する
+│   │   ├── schema                       # Pydanticスキーマ
+│   │   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   │   └── __init__.py              # Pythonパッケージとして認識させるためのファイル
 │   ├── tests                        # テスト関連
-│   │   ├── mockdata                 # テスト用のモックデータすでに作成済み
+│   │   ├── mockdata                 # テスト用のモックデータ
 │   │   │   ├── client_input.json    # リクエストボディのモックデータ、※編集禁止
 │   │   │   └── logic_data.xml       # テスト用のロジックデータ（XML）、※編集禁止
 │   │   ├── test_endpoints           # エンドポイントのユニット/結合テスト
 │   │   ├── test_services            # サービス層のユニットテスト
 │   │   └── __init__.py             # テスト用パッケージ
-│   ├── config                       # 設定関連
-│   │   └── settings.py             # 設定値を管理する
-│   ├── schema                       # Pydanticスキーマ、すでに作成済み
-│   │   └── schema.py               # FortuneItem, LogicData, FortuneBlockなどの定義、※編集禁止
 │   └── __init__.py                 # Pythonパッケージとして認識させるためのファイル
 ├── cdk                              # AWS CDKによるIaC
 │   ├── app_runner_stack.py         # App Runner関連のスタック定義
@@ -118,9 +120,12 @@ npm install -g aws-cdk
 │   └── __init__.py                 # CDK用パッケージ
 ├── doc                              # ドキュメント類
 │   └── how_to_use_bedrock_claude.md  # Claude(Bedrock)を使ったLLM実装ガイド、※編集禁止
+├── env.example                       # 環境変数のサンプル
+├── .gitignore                       # git管理除外ファイル
 ├── Dockerfile                       # Dockerビルド用
 ├── requirements.txt                 # アプリケーションのPython依存関係
 └── README.md                        # プロジェクト全体の説明
+
 ```
 
 ## 1. ローカル開発環境のセットアップ
