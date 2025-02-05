@@ -65,7 +65,53 @@ docが存在する場合は、その実装方法を優先して実装するこ�
  - docker
  - CI/CD : AWS CodePipeline/App Runner
  - AWS CDK(python)
- - コード管理：github
+ - コード管理:github
+ - boto3: 1.36.0以上 (Bedrock APIサポートのため)
+ - AWSのリージョン : ap-northeast-1 / Bedrockはus-west-2
+
+## 遵守事項
+ - ローカル実行時とDocker実行時の環境差分は.envファイルで管理
+ - コードはブランチ管理
+ - コードはブランチ管理
+ - ブランチはmainとdevelopの2つ
+ - ブランチはdevelopからmainへマージ
+ - ブランチはdevelopからmainへマージ
+
+# 環境構築の大枠の流れ
+ - gitのURL、AWSの機密情報等を.envファイルに設定
+ - ローカル環境構築
+ - APIの動作確認
+ - BedrockのAPI呼び出しの動作確認
+ - Docker環境構築
+ - APIの動作確認
+
+## コーディング規約
+
+### Python
+- PEP 8に準拠
+- 型ヒントを必須とする
+- docstringはGoogle形式で記述
+- 関数の行数は50行以内を目標
+- PYTHONPATHはapp/srcに設定すること
+- テストコードはapp/testsに配置すること
+- モジュールのインポート規約：
+  - app/src/endpoints/fortune.pyからインポートする場合は以下の形式を使用すること
+    例: `from endpoints.fortune import fortune`
+
+### FastAPI
+- エンドポイントはOpenAPI仕様に準拠
+- レスポンスモデルは必ずPydanticで定義
+- エラーハンドリングは統一フォーマットで実装
+- ミドルウェアの追加は影響範囲を考慮
+- ローカル実行時とDocker実行時ではポートを変えること
+- 起動前は必ずuvicornがすでに起動済みか確認し起動していたら停止すること
+
+
+## セキュリティ
+- センシティブなファイルは読み取り、編集不可
+- 環境変数は.envファイルに保存
+- シークレットは環境変数に保存
+- ログにはシークレットを出力しない
 
 
 ## Sensitive Files
