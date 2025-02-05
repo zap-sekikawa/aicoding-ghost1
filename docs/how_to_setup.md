@@ -184,6 +184,7 @@ echo $PYTHONPATH
 pytest app/tests
 ```
 - Mock データ: app/tests/mockdata/ 配下の logic_data.xml や client_input.json を利用
+  ※これらのmockデータファイルは変更禁止です。テストケース追加時は新しいmockファイルを作成してください。
 - 結果: ターミナル上にテスト結果が出力され、エラーがあれば詳細が表示されます
 
 8. AWS 環境へのデプロイ（検証 / 本番）
@@ -250,6 +251,10 @@ cdk deploy CodePipelineStack
 ログ出力
 - 機密性の高い値をログに出力しない
 - 外部 API Key、AWS シークレットキー、トークンなど絶対にログに出さない
+
+テストデータの取り扱い
+- app/tests/mockdata/ 配下のmockデータ（logic_data.xml, client_input.json）は変更禁止
+- 新しいテストケースを追加する場合は、既存のmockデータを変更せず、新しいmockファイルを作成する
 
 ベストプラクティス
 - 本番環境では AWS Systems Manager Parameter Store や Secrets Manager で機密情報を管理
