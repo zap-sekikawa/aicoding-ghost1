@@ -15,7 +15,7 @@ class ClientInput(BaseModel):
     """
     datetime: str
     birthday: str
-    browsign_history: List[BrowsingHistory]
+    browsing_history: List[BrowsingHistory]
 
 
 class FortuneItem(BaseModel):
