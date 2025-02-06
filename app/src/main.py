@@ -1,6 +1,12 @@
 from fastapi import FastAPI
 from endpoints.fortune import router as fortune_router
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+print("USE_MOCK: ", os.getenv("USE_MOCK"))
+
 app = FastAPI(
     title="Fortune API",
     description="Fortune telling API using LLM",

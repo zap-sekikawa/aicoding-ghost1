@@ -25,24 +25,29 @@ def call_llm(prompt: str) -> str:
         region_name=os.getenv('AWS_BEDROCK_REGION', 'us-west-2')
     )
 
-    # リクエストボディの作成
-    body = {
-        "prompt": prompt,
-        "max_tokens_to_sample": 2000,
-        "temperature": 0.7,
-        "top_p": 0.9,
-    }
-
     try:
-        # Bedrockの呼び出し
-        response = bedrock.invoke_model(
-            modelId="anthropic.claude-v2",
-            body=json.dumps(body)
+        # Converseリクエストの作成
+        response = bedrock.converse(
+            modelId="anthropic.claude-3-sonnet-20240229-v1:0",
+            system=[{"text": "あなたは有能なAIアシスタントです。"}],
+            messages=[
+                {
+                    "role": "user",
+                    "content": [{"text": prompt}]
+                }
+            ],
+            inferenceConfig={
+                "maxTokens": 2000,
+                "temperature": 0.7,
+                "topP": 0.9
+            }
         )
-        
+
         # レスポンスの解析
-        response_body = json.loads(response['body'].read())
-        return response_body['completion'].strip()
+        model_message = response["output"]["message"]
+        if "content" in model_message:
+            return model_message["content"][0]["text"].strip()
+        return ""
 
     except Exception as e:
         raise Exception(f"LLM呼び出しに失敗しました: {str(e)}")

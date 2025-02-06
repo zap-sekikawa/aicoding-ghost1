@@ -2,6 +2,7 @@ from typing import List
 from schema.schema import ClientInput, FortuneItems, FortuneItem
 from utils.llm_client import call_llm
 from prompt.create_topics_prompts import get_create_topics_prompt
+from data.default_topics import DEFAULT_TOPICS
 
 def create_topics(client_input: ClientInput) -> FortuneItems:
     """
@@ -13,6 +14,10 @@ def create_topics(client_input: ClientInput) -> FortuneItems:
     Returns:
         FortuneItems: 6つの占い項目
     """
+    # 閲覧履歴がない場合はデフォルトのトピックを返す
+    if not client_input.browsing_history:
+        return DEFAULT_TOPICS
+    
     # プロンプトの生成
     prompt = get_create_topics_prompt(client_input)
     

@@ -5,3 +5,5 @@ pydantic>=2.0.0
 pytest>=7.0.0
 python-dotenv>=1.0.0
 requests>=2.31.0
+xmltodict>=0.14.2
+pyDes>=2.0.1
